@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { Button } from "./ui/button";
 import { usePathname } from "next/navigation";
-import { NavBarSidebar } from "@/app/(home)/navbar-sidebar";
+import { NavBarSidebar } from "@/app/(app)/(home)/navbar-sidebar";
 import {  MenuIcon } from "lucide-react";
 
 interface NavBarItemProps {
