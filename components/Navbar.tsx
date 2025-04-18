@@ -1,9 +1,11 @@
 "use client";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "./ui/button";
 import { usePathname } from "next/navigation";
+import { NavBarSidebar } from "@/app/(home)/navbar-sidebar";
+import {  MenuIcon } from "lucide-react";
 
 interface NavBarItemProps {
   href: string;
@@ -26,7 +28,7 @@ const NavBarItem = ({ href, children, isActive }: NavBarItemProps) => {
   );
 };
 
-const navBarItem = [
+const navBarItems = [
   { href: "/", children: "Home" },
   { href: "/about", children: "about" },
 
@@ -37,6 +39,7 @@ const navBarItem = [
 
 const Navbar = () => {
   const pathname = usePathname();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   return (
     <nav
       className="h-20 flex border-b 
@@ -45,8 +48,12 @@ const Navbar = () => {
       <Link className="pl-6 flex items-center" href={"/"}>
         <span className={cn("text-5xl font-bold")}>Coolaf</span>
       </Link>
+      <NavBarSidebar  open ={isSidebarOpen}
+        onOpenChange={setIsSidebarOpen}
+        items={navBarItems}
+      />
       <div className="items-center gap-4 hidden lg:flex">
-        {navBarItem.map((item) => (
+        {navBarItems.map((item) => (
           <NavBarItem
             key={item.href}
             href={item.href}
@@ -74,6 +81,15 @@ const Navbar = () => {
          transition-colors hover:text-white text-lg"
         >
           <Link href={"/sign-up"}>Log in</Link>
+        </Button>
+      </div>
+
+      <div className="flex lg:hidden items-center justify-center">
+        <Button variant={"ghost"}
+         className="size-12 border-transparent bg-white"
+         onClick={() => setIsSidebarOpen(true)}
+        >
+          <MenuIcon/>
         </Button>
       </div>
     </nav>
