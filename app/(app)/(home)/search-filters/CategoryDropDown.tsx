@@ -5,9 +5,10 @@ import { Category } from "@/payload-types";
 import React, { useRef, useState } from "react";
 import useDropDownPosition from "./useDropDownPosition";
 import SubcategoryMenu from "./SubcategoryMenu";
+import { Customcategory } from "../types";
 
 interface Props {
-  category: Category;
+  category: Customcategory;
   isActive?: boolean;
 
   isNavigationHovered?: boolean;
@@ -43,7 +44,8 @@ const dropdownPosition = getDropDownPosition()
           className={cn(
             `h-11 px-4 bg-transparent border-transparent rounded-full hover:bg-sky-500
       hover:border-primary hover:text-white text-black`,
-            isActive && !isNavigationHovered && "bg-white border-primary"
+            isActive && !isNavigationHovered && "bg-white border-primary",
+            isOpen && "bg-white border-primary"
           )}
         >
           {category.name}

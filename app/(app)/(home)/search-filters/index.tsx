@@ -1,10 +1,11 @@
 import React from 'react'
 import SearchInput from './SearchInput'
 import CategoriesComponent from './CategoriesComponent'
+import { Customcategory } from '../types'
 
 
 interface Props {
-    data: any
+    data: Customcategory[]
 }
 const SearchFilters = ({data}: Props) => {
   return (

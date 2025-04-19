@@ -10,7 +10,8 @@
     "generate:types": "payload generate:types",
     "db:fresh": "payload migrate:fresh",
     "lint": "next lint",
-    "db:seed": "set PAYLOAD_SECRET=your_secret_value && set DATABASE_URI=your_database_uri && tsx seed.ts"
+    "db:seed": "set PAYLOAD_SECRET=your_secret_value && set DATABASE_URI=your_database_uri && tsx seed.ts",
+    "db:reset": ""
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
