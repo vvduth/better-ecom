@@ -1,5 +1,6 @@
 import React from 'react'
 import SearchInput from './SearchInput'
+import CategoriesComponent from './CategoriesComponent'
 
 
 interface Props {
@@ -10,9 +11,8 @@ const SearchFilters = ({data}: Props) => {
     <div className='px-4 lg:px-12 py-8 border-b 
     flex flex-col gap-4 w-full'>
         <SearchInput />
-        {
-        JSON.stringify(data, null, 2)
-    }</div>
+        <CategoriesComponent data={data} />
+        </div>
   )
 }
 
