@@ -8,7 +8,9 @@ interface Props {
 
 const CategoriesComponent = ({data}: Props) => {
   return (
-    <div>{
+    <div className='relative w-full'>
+      <div className='flex flex-nowrap items-center'>
+      {
       data.map((category: Category) =>(
         <div
           key={category.id}
@@ -21,7 +23,9 @@ const CategoriesComponent = ({data}: Props) => {
           />
         </div>
       ))
-      }</div>
+      }
+      </div>
+    </div>
   )
 }
 
